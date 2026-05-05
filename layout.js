@@ -94,8 +94,8 @@ function injectStyles() {
         body {
             margin: 0;
             font-family: monospace;
-            background: #101010;
-            color: #eaeaea;
+            background: #f4f4f4; /* lighter */
+            color: #222;
         }
 
         .topbar {
@@ -103,8 +103,8 @@ function injectStyles() {
             justify-content: space-between;
             align-items: center;
             padding: 12px 20px;
-            background: #111;
-            border-bottom: 1px solid #222;
+            background: #ffffff;
+            border-bottom: 1px solid #ddd;
         }
 
         .topbar .logo {
@@ -114,12 +114,12 @@ function injectStyles() {
 
         .topbar nav a {
             margin-left: 15px;
-            color: #aaa;
+            color: #555;
             text-decoration: none;
         }
 
         .topbar nav a:hover {
-            color: #fff;
+            color: #000;
         }
 
         .main-content {
@@ -129,12 +129,12 @@ function injectStyles() {
 
         .footer {
             padding: 10px 20px;
-            background: #111;
-            border-top: 1px solid #222;
+            background: #ffffff;
+            border-top: 1px solid #ddd;
             display: flex;
             justify-content: space-between;
             font-size: 12px;
-            color: #777;
+            color: #555;
         }
 
         /* GLITCH EFFECT HOOK */
