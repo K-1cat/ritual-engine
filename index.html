@@ -4,17 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ritual Engine</title>
-  <style>
-    
-  </style>
 </head>
-
 <body>
-  <div id="topbar"></div>
-  <div id="main-content">
-    <p>place holder</p>
-  </div>
-  <div id="footer"></div>
-  <script src="/layout.js"></script>
+
+<script src="/layout.js"></script>
+<script>
+initLayout("home", `
+    <h1>Ritual Engine</h1>
+    <p><i>記号実行フレームワーク v0.3.7</i></p>
+
+    <hr>
+
+    <h2>概要</h2>
+    <p>
+        Ritual Engine は、記号的入力を処理し、
+        構造化された呼び出しシーケンスを実行するための実験的システムです。
+    </p>
+
+    <p>
+        パターン応答テストを目的として開発されましたが、
+        特定条件下において予期しない挙動が確認されています。
+    </p>
+
+    <hr>
+
+    <h2>機能</h2>
+    <ul>
+        <li>モジュール型呼び出しパイプライン</li>
+        <li>記号のバインディングおよび実行</li>
+        <li>多層入力処理</li>
+        <li>状態の永続化</li>
+    </ul>
+
+    <hr>
+
+    <h2>ステータス</h2>
+    <p id="engine-status">すべてのシステムは正常に動作しています。</p>
+
+    <hr>
+
+    <h2>ナビゲーション</h2>
+    <ul>
+        <li><a href="/engine/engine.html">エンジン</a></li>
+        <li><a href="/logs/log-01.html">開発ログ</a></li>
+        <li><a href="/archive/redvil.html">アーカイブ</a></li>
+    </ul>
+
+    <hr>
+
+    <p style="font-size: 12px; color: #555;">
+        © VAI Systems — 内部ビルド
+    </p>
+
+    <!-- 隠しトリガー -->
+    <div id="hidden-trigger" style="opacity:0; height:20px;">
+        .
+    </div>
+`);
+
+// =========================
+// 状態変化
+// =========================
+if (State.getFlag("visited_logs")) {
+    document.getElementById("engine-status").innerText = "軽微な不整合が検出されました。";
+}
+
+// =========================
+// 隠しクリック
+// =========================
+document.getElementById("hidden-trigger").addEventListener("click", () => {
+    State.setFlag("found_entry");
+    window.location.href = "/logs/log-01.html";
+});
+
+// =========================
+// キー入力シークレット
+// =========================
+let sequence = [];
+window.addEventListener("keydown", (e) => {
+    sequence.push(e.key);
+
+    if (sequence.join("").includes("invoke")) {
+        State.setFlag("typed_invoke");
+        window.location.href = "/hidden/layer2.html";
+    }
+});
+</script>
+
 </body>
 </html>
