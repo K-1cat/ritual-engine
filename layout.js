@@ -94,7 +94,7 @@ function injectStyles() {
         body {
             margin: 0;
             font-family: monospace;
-            background: #0a0a0a;
+            background: #101010;
             color: #eaeaea;
         }
 
